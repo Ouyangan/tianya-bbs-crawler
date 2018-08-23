@@ -3,29 +3,43 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "l1dgFJfzGLG/2AEPyt6ADsnVLPQ=",
+			"checksumSHA1": "b5+p8/VolJPkZ7NPaSG6hu7Xc4M=",
 			"path": "github.com/PuerkitoBio/goquery",
 			"revision": "dc2ec5c7ca4d9aae063b79b9f581dd3ea6afd2b2",
 			"revisionTime": "2018-06-07T15:06:10Z"
 		},
 		{
-			"checksumSHA1": "Q/2QpI7E35SsNYfaxLsWHFry9k4=",
+			"checksumSHA1": "WHAdzAZYBA6GCyPTIXr46P77uis=",
 			"path": "github.com/andybalholm/cascadia",
 			"revision": "901648c87902174f774fac311d7f176f8647bdaa",
 			"revisionTime": "2018-02-20T18:43:36Z"
 		},
 		{
-			"checksumSHA1": "ag6CP2CjfMRiJxDuBDVKytu5sR8=",
-			"path": "golang.org/x/net/html",
-			"revision": "5ccada7d0a7ba9aeb5d3aca8d3501b4c2a509fec",
-			"revisionTime": "2018-01-12T01:53:59Z"
+			"checksumSHA1": "dVgxGaZhqKYnZ+v0L34A5+xtnaQ=",
+			"path": "github.com/sirupsen/logrus",
+			"revision": "181d419aa9e2223811b824e8f0b4af96f9ba9302",
+			"revisionTime": "2017-07-28T07:42:14Z"
 		},
 		{
-			"checksumSHA1": "iWvOOLdDxvI4AVX6px6/HYBPeaQ=",
+			"checksumSHA1": "bA2gANkJBx2Br/p5GKYdhyGo3Pg=",
+			"path": "golang.org/x/crypto/ssh/terminal",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "vqc3a+oTUGX8PmD0TS+qQ7gmN8I=",
+			"path": "golang.org/x/net/html",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "00eQaGynDYrv3tL+C7l9xH0IDZg=",
 			"path": "golang.org/x/net/html/atom",
-			"revision": "5ccada7d0a7ba9aeb5d3aca8d3501b4c2a509fec",
-			"revisionTime": "2018-01-12T01:53:59Z"
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "DL86dD0CNBnjMxK1FuWRO+2gAHI=",
+			"path": "golang.org/x/sys/unix",
+			"revision": ""
 		}
 	],
-	"rootPath": "tianya_spider"
+	"rootPath": "tianya-bbs-crawler"
 }
