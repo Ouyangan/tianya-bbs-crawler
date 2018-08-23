@@ -1,0 +1,31 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "l1dgFJfzGLG/2AEPyt6ADsnVLPQ=",
+			"path": "github.com/PuerkitoBio/goquery",
+			"revision": "dc2ec5c7ca4d9aae063b79b9f581dd3ea6afd2b2",
+			"revisionTime": "2018-06-07T15:06:10Z"
+		},
+		{
+			"checksumSHA1": "Q/2QpI7E35SsNYfaxLsWHFry9k4=",
+			"path": "github.com/andybalholm/cascadia",
+			"revision": "901648c87902174f774fac311d7f176f8647bdaa",
+			"revisionTime": "2018-02-20T18:43:36Z"
+		},
+		{
+			"checksumSHA1": "ag6CP2CjfMRiJxDuBDVKytu5sR8=",
+			"path": "golang.org/x/net/html",
+			"revision": "5ccada7d0a7ba9aeb5d3aca8d3501b4c2a509fec",
+			"revisionTime": "2018-01-12T01:53:59Z"
+		},
+		{
+			"checksumSHA1": "iWvOOLdDxvI4AVX6px6/HYBPeaQ=",
+			"path": "golang.org/x/net/html/atom",
+			"revision": "5ccada7d0a7ba9aeb5d3aca8d3501b4c2a509fec",
+			"revisionTime": "2018-01-12T01:53:59Z"
+		}
+	],
+	"rootPath": "tianya_spider"
+}
