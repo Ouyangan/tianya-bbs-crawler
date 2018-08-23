@@ -18,41 +18,27 @@ var log = logrus.StandardLogger()
 func init() {
 	initLog()
 }
+
 func main() {
-	run()
+	start()
 }
 
-func run() {
+func start() {
 	var fileName string
 	var baseUrl string
 	var duration int32
-	fmt.Println("作者:ananan")
-	fmt.Println("代码地址:github.com/Ouyangan/tianya-bbs-crawler")
-	fmt.Println("联系方式:981017952@qq.com")
-	fmt.Println("===========使用介绍===========")
-	fmt.Println("请依次输入四个参数:")
-	fmt.Println("1.生成文件名称")
-	fmt.Println("2.帖子地址")
-	fmt.Println("3.每隔爬取间隔时间(毫秒) 推荐1000毫秒以上,防止被封")
-	fmt.Println("输入完成后将会在同级目录下生成txt文件,请等待任务完成")
-	fmt.Println()
-	fmt.Println("参考示例:")
-	fmt.Println()
-	fmt.Println("天涯")
-	fmt.Println("http://bbs.tianya.cn/post-house-252774-1.shtml")
-	fmt.Println("1000")
-	fmt.Println("=============================")
-	fmt.Println()
+	prePrintInfo()
 	fmt.Println("请输入生成文件名称并回车:")
 	fmt.Scanln(&fileName)
 	fmt.Println("请输入帖子地址并回车:")
 	fmt.Scanln(&baseUrl)
 	fmt.Println("每页爬取间隔时间并回车")
 	fmt.Scanln(&duration)
-	start(fileName, baseUrl, duration)
+	run(fileName, baseUrl, duration)
 }
 
-func start(fileName string, url string, duration int32) {
+
+func run(fileName string, url string, duration int32) {
 	fi := createFile(fileName)
 	defer func() {
 		if err := fi.Close(); err != nil {
@@ -76,11 +62,15 @@ func parsing(baseUrl string, pageNumber int, file *os.File) {
 	createPageHeader(pageNumber, url, &text)
 	doc := httpGetUtil(url)
 	doc.Find(".atl-item").Each(func(i int, selection *goquery.Selection) {
-		parsingFloor(selection, &text)
-		parsingAuthorAndReplayTime(selection, &text)
-		parsingContent(selection, &text)
+		doParsing(selection, &text)
 	})
 	file.WriteString(text.String())
+}
+
+func doParsing(selection *goquery.Selection, text *strings.Builder) {
+	parsingFloor(selection, text)
+	parsingAuthorAndReplayTime(selection, text)
+	parsingContent(selection, text)
 }
 
 //解析url前缀,总页码
@@ -107,6 +97,7 @@ func parsingTopicInfo(url string) (string, int) {
 	return baseUrl, count
 }
 
+//生成每页信息
 func createPageHeader(pageNumber int, url string, text *strings.Builder) {
 	text.WriteString("\r\n\r\n")
 	text.WriteString("第")
@@ -195,6 +186,7 @@ func line(fi *os.File, count int) {
 	}
 }
 
+//log初始化
 func initLog() {
 	log.Level = logrus.DebugLevel
 	log.Formatter = &logrus.TextFormatter{
@@ -210,4 +202,25 @@ func initLog() {
 		mw := io.MultiWriter(file, os.Stdout)
 		log.Out = mw
 	}
+}
+
+//打印简介
+func prePrintInfo() {
+	fmt.Println("作者:ananan")
+	fmt.Println("代码地址:github.com/Ouyangan/tianya-bbs-crawler")
+	fmt.Println("联系方式:981017952@qq.com")
+	fmt.Println("===========使用介绍===========")
+	fmt.Println("请依次输入三个参数:")
+	fmt.Println("1.生成文件名称")
+	fmt.Println("2.帖子地址")
+	fmt.Println("3.每页间隔爬取时间(毫秒) 推荐1000毫秒以上,防止被封:")
+	fmt.Println("输入完成后将会在同级目录下生成txt文件,请等待任务完成")
+	fmt.Println()
+	fmt.Println("参考示例:")
+	fmt.Println()
+	fmt.Println("天涯")
+	fmt.Println("http://bbs.tianya.cn/post-house-252774-1.shtml")
+	fmt.Println("1000")
+	fmt.Println("=============================")
+	fmt.Println()
 }
